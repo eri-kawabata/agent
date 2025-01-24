@@ -1,15 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Link をインポート
+import { Link } from 'react-router-dom';
 
-function AgentCard({ agent, isFavorite, onToggleFavorite }) { // props を追加
+function AgentCard({ agent, isFavorite, onToggleFavorite }) {
   return (
-    <li>
-      <Link to={`/agent/${agent.id}`}> {/* Link でエージェント詳細ページに遷移 */}
+    <li className="agent-card">
+      <Link to={`/agent/${agent.id}`}>
+        {agent.image && <img src={agent.image} alt={agent.name} />}
         <h2>{agent.name}</h2>
+        <p>{agent.area}</p>
+        <p>{agent.tel}</p>
       </Link>
-      <p>{agent.area}</p>
-          <p>{agent.tel}</p>
-           <button onClick={() => onToggleFavorite(agent.id)}> {/* お気に入りボタン */}
+      <button onClick={() => onToggleFavorite(agent.id)}>
         {isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'}
       </button>
     </li>

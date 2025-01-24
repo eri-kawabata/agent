@@ -13,8 +13,13 @@ function SearchBar({ onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={term} onChange={handleChange} />
+    <form onSubmit={handleSubmit} className="search-bar">
+      <input
+        type="text"
+        value={term}
+        onChange={handleChange}
+        placeholder="エリア、駅名、会社名で検索"
+      />
       <button type="submit">検索</button>
     </form>
   );
